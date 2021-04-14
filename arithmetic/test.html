@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app">
+    <input type="text" id="txt">
+    <h3 id="value"></h3>
+  </div>
+
+  <script>
+    var data = {}
+    Object.defineProperty(data,'txt', {
+      get: function() {
+        return data
+      },
+      set: function(newVal) {
+        document.getElementById('txt').value = newVal
+        document.getElementById('value').innerHTML = newVal
+      }
+    })
+    document.addEventListener('input',function(e){
+      data.txt = e.target.value
+    })
+  </script>
+</body>
+</html>
